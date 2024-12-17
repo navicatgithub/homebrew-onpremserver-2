@@ -4,7 +4,7 @@ class Navicatonpremserver2 < Formula
   homepage "https://www.navicat.com/en/products/navicat-on-prem-server"
   url "https://download3.navicat.com/onpremsvr2-download/homebrew/navicat-onprem-server-2.0.4.tar.gz"
   mirror "https://dn.navicat.com.cn/onpremsvr2-download/homebrew/navicat-onprem-server-2.0.4.tar.gz"
-  sha256 "855723309172325e2bf71edcc1badc2aed75b0172284756b1e75266496cac9fa"
+  sha256 "d1faf7d027eb5d8660bac536e22d4f052ec5857ac41abef0649419a44b34e515"
 
   def install
     # Preload
