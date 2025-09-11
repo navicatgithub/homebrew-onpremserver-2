@@ -4,19 +4,12 @@ class Navicatonpremserver2 < Formula
   homepage "https://www.navicat.com/en/products/navicat-on-prem-server"
   url "https://download3.navicat.com/onpremsvr2-download/homebrew/navicat-onprem-server-2.0.5.tar.gz"
   mirror "https://dn.navicat.com.cn/onpremsvr2-download/homebrew/navicat-onprem-server-2.0.5.tar.gz"
-  sha256 "f8cac64f5b191983b543e5e08cb313986938312aacc2ad5e632a429386522f0d"
+  sha256 "3f9a5f07adb022cd803c509754184439fb444049d44aeafd0204fa049816726e"
 
   def install
     # Preload
     system "./install.sh"
     libexec.install Dir["*"]
-    
-    system "codesign", "--entitlements", libexec/"app.entitlements", "--force", "--sign", "-", libexec/"libcc-web.dylib"
-    system "codesign", "--entitlements", libexec/"app.entitlements", "--force", "--sign", "-", libexec/"libssl.3.dylib"
-    system "codesign", "--entitlements", libexec/"app.entitlements", "--force", "--sign", "-", libexec/"libcrypto.3.dylib"
-    system "codesign", "--entitlements", libexec/"app.entitlements", "--force", "--sign", "-", libexec/"libmariadb.3.dylib"
-    system "codesign", "--entitlements", libexec/"app.entitlements", "--force", "--sign", "-", libexec/"libcc_wrap.so"
-    system "codesign", "--entitlements", libexec/"app.entitlements", "--force", "--sign", "-", libexec/"navicatonpremserver"
 
     # Create script in /opt/homebrew/bin
     (libexec/"navicatonpremserver_env").write_env_script "#{libexec}/navicatonpremserver", DYLD_LIBRARY_PATH: libexec, NAVICAT_ONPREM_ROOT: libexec
